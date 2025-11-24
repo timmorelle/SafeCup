@@ -1,0 +1,50 @@
+    /* Header */
+    header { text-align: center; padding: 50px 20px; }
+    header img { max-width: 150px; margin-bottom: 20px; }
+    header h1 { font-size: 2.2em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; color: #555; }
+
+    /* Section Glass */
+    .glass-section { text-align: center; padding: 60px 20px; }
+    .glass { width: 150px; height: 250px; margin: 20px auto; border-radius: 0 0 50% 50%; background-color: #a9c89e; display: flex; align-items: center; justify-content: center; transition: background-color 0.5s ease; }
+    .glass img { max-width: 100px; }
+
+    /* Button */
+    button { padding: 15px 30px; font-size: 1em; border: none; border-radius: 25px; cursor: pointer; transition: all 0.3s ease; background-color: #333; color: #fff; }
+    button:hover { background-color: #555; }
+
+    /* Footer */
+    footer { text-align: center; padding: 40px 20px; color: #777; font-size: 0.9em; }
+</style>
+<!-- Header avec logo et slogan -->
+<header>
+    <img src="logo.png" alt="Logo SafeCup">
+    <h1>SafeCup</h1>
+    <p>Un souffle peut tout changer, “Adopter Safe Cup”</p>
+</header>
+
+<!-- Section verre interactif -->
+<section class="glass-section">
+    <div class="glass" id="glass">
+        <img src="logo.png" alt="Logo SafeCup">
+    </div>
+    <button id="blowBtn">Souffler</button>
+    <p style="margin-top:20px; font-size:0.95em; color:#555;">Cliquez sur “Souffler” pour voir si vous pouvez prendre la route.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+    &copy; 2025 SafeCup. Tous droits réservés.
+</footer>
+
+<script>
+    const glass = document.getElementById('glass');
+    const blowBtn = document.getElementById('blowBtn');
+
+    blowBtn.addEventListener('click', () => {
+        // Simulation du souffle : aléatoire rouge ou vert
+        const colors = ['#a9c89e', '#e57373']; // vert / rouge
+        const chosenColor = colors[Math.floor(Math.random() * colors.length)];
+        glass.style.backgroundColor = chosenColor;
+    });
+</script>
