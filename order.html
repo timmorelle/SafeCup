@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeCup – Commander (simulation)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-content">
+    <div class="logo">
+      <img src="Logo SafeCup.PNG" alt="Logo SafeCup" class="header-logo">
+      SafeCup
+    </div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="how-it-works.html">Fonctionnement & Tech</a>
+      <a href="order.html" class="active">Commander (Simulation)</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section-padding order-section">
+    <div class="container">
+      <div class="order-content">
+        <div class="order-form-container">
+          <h1>Passez votre commande fictive</h1>
+          <p class="message-fictif">
+            **Ceci est une simulation pour le projet académique. Aucune transaction ne sera effectuée.**
+          </p>
+
+          <form class="order-form" id="orderForm">
+            <div class="form-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" placeholder="Votre nom" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Adresse e-mail</label>
+              <input type="email" id="email" name="email" placeholder="vous@safe.cup" required>
+            </div>
+
+            <div class="form-group">
+              <label for="quantity">Quantité (Max. 10 unités)</label>
+              <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+            </div>
+
+            <div class="form-group">
+              <label for="color">Couleur du corps du gobelet</label>
+              <select id="color" name="color">
+                <option value="classic">Blanc Arctique (Classique)</option>
+                <option value="black">Noir Carbone</option>
+                <option value="blue">Bleu Nuit</option>
+              </select>
+            </div>
+
+            <button type="submit" class="button">Finaliser la commande (Fictif)</button>
+
+            <p id="formFeedback" class="form-feedback" aria-live="polite" style="display: none;"></p>
+          </form>
+        </div>
+
+        <div class="order-visual-container">
+          <img src="image 3D du SafeCup.png" alt="SafeCup produit en main" class="product-image-small">
+          <p class="cup-caption-order">
+            Livraison estimée : 2 jours (Dans notre imagination).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><img src="Logo SafeCup.PNG" alt="Logo SafeCup miniature" class="footer-logo"> &copy; 2025 SafeCup – Projet fictif de marketing. Sécurité et Responsabilité.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>

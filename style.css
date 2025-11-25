@@ -1,0 +1,532 @@
+/* ==================================== */
+/* 1. Variables et Réinitialisation CSS */
+/* ==================================== */
+
+:root {
+    /* Couleurs de la marque (inspirées par le produit high-tech) */
+    --color-dark-bg: #1e1e1e; /* Fond Hero/sombre premium */
+    --color-light-bg: #ffffff; /* Fond clair principal */
+    --color-primary-text: #333333; /* Texte sombre */
+    --color-light-text: #f5f5f7; /* Texte clair */
+    
+    /* Couleurs du produit (SafeCup) */
+    --color-cup-green: #00c853; /* Indicateur Vert (Sécurité) */
+    --color-cup-red: #ff3b30; /* Indicateur Rouge (Alerte) */
+    
+    /* Couleurs d'accent et CTA */
+    --color-accent: var(--color-cup-green); 
+    
+    --spacing-lg: 5rem;
+    --spacing-md: 2.5rem;
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Typographie moderne et propre (utilise la police système) */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    color: var(--color-primary-text);
+    background-color: var(--color-light-bg);
+    scroll-behavior: smooth;
+}
+
+/* Layout de base */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0; 
+}
+
+/* ==================================== */
+/* 2. En-tête et Navigation */
+/* ==================================== */
+
+.site-header {
+    background-color: var(--color-light-bg);
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-dark-bg);
+    letter-spacing: -0.5px;
+}
+
+.header-logo {
+    width: 25px; /* Petite taille pour le logo */
+    height: 25px;
+    margin-right: 8px;
+}
+
+.nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--color-primary-text);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.nav a.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+    font-weight: 600;
+}
+
+.nav a:hover:not(.active) {
+    color: var(--color-accent);
+}
+
+/* ==================================== */
+/* 3. Boutons (CTA) */
+/* ==================================== */
+
+.button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-light-text);
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    border-radius: 999px; 
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 200, 83, 0.4);
+}
+
+.button:hover {
+    background-color: #00b34d; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 200, 83, 0.6);
+}
+
+/* ==================================== */
+/* 4. Sections Générales et Titres */
+/* ==================================== */
+
+.section-padding {
+    padding: var(--spacing-lg) 0;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: var(--spacing-md);
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-dark-bg);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+/* ==================================== */
+/* 5. Section Hero (High-Tech Launch) */
+/* ==================================== */
+
+.hero {
+    background-color: var(--color-dark-bg);
+    color: var(--color-light-text);
+    padding: 5rem 0;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-text h1 {
+    color: var(--color-light-text);
+    font-size: 3.5rem;
+}
+
+.tagline {
+    font-size: 1.15rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.product-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.product-image {
+    max-width: 100%;
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    /* Rotation pour simuler l'objet en 3D (garder le look dynamique) */
+    transform: rotateY(15deg) rotateX(10deg) scale(1);
+    transition: transform 0.8s ease-out, filter 0.8s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+/* Classe JS pour simuler le statut rouge */
+.product-image.alert-red {
+    /* Simuler l'alerte en Rouge et rendre l'image plus présente */
+    filter: brightness(1.2) drop-shadow(0 0 20px var(--color-cup-red));
+    transform: rotateY(-15deg) rotateX(-10deg) scale(1.05);
+}
+
+/* Liste de statuts (cliquable dans le Hero) */
+.status-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    cursor: pointer; 
+    display: inline-block;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.status-list:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.status-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 5px currentColor;
+}
+
+.status-dot.green { background-color: var(--color-cup-green); color: var(--color-cup-green); }
+.status-dot.red { background-color: var(--color-cup-red); color: var(--color-cup-red); }
+
+/* ==================================== */
+/* 6. Section Avantages/Grille */
+/* ==================================== */
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.card {
+    background-color: #f8f8f8;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: var(--color-dark-bg);
+    margin-bottom: 0.5rem;
+}
+
+/* ==================================== */
+/* 7. Section Fonctionnement (Steps) */
+/* ==================================== */
+
+.steps {
+    margin-top: 3rem;
+    display: grid;
+    gap: 3rem;
+    position: relative;
+    padding-left: 40px; 
+}
+
+/* Ligne de progression verticale */
+.steps::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ddd;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    color: var(--color-light-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+    transform: translateX(-40px);
+}
+
+.status-dot-block {
+    margin-top: 1.5rem;
+    padding: var(--spacing-md);
+    background-color: #f0fff0;
+    border: 1px solid var(--color-cup-green);
+    border-radius: var(--border-radius);
+}
+
+.status-dot-block .status-list {
+    padding: 0;
+    cursor: default;
+}
+.status-dot-block .status-list:hover {
+    background-color: transparent;
+}
+
+
+/* ==================================== */
+/* 8. Formulaire de commande & Contact */
+/* ==================================== */
+
+.order-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.order-form-container,
+.order-visual-container {
+    flex: 1;
+}
+
+.order-form-container {
+    padding-right: 20px;
+}
+
+.order-visual-container {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: #f8f8f8;
+    border-radius: var(--border-radius);
+}
+
+.product-image-small {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    /* Transformation légère pour rester dans l'esthétique 3D */
+    transform: rotateY(5deg) rotateX(2deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cup-caption-order {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.message-fictif {
+    color: var(--color-cup-red);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+}
+
+.order-form {
+    background-color: var(--color-light-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--color-primary-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(0, 200, 83, 0.2);
+    outline: none;
+}
+
+.order-form .button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.form-feedback {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--color-cup-green);
+    color: var(--color-light-text);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+}
+
+
+/* ==================================== */
+/* 9. Pied de Page (Footer) */
+/* ==================================== */
+
+.site-footer {
+    background-color: #f8f8f8;
+    border-top: 1px solid #eeeeee;
+    color: #777;
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.site-footer .container p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* ==================================== */
+/* 10. Responsivité */
+/* ==================================== */
+
+@media (max-width: 900px) {
+    
+    .hero-content {
+        flex-direction: column-reverse; 
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .product-visual {
+        margin-bottom: 2rem;
+    }
+
+    .nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .order-content {
+        flex-direction: column;
+    }
+
+    .order-form-container {
+        padding-right: 0;
+    }
+
+    .order-visual-container {
+        display: none; /* Cache l'image sur les petits écrans dans la commande pour simplifier */
+    }
+}
+
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav a {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .steps::before {
+        left: 20px;
+    }
+    
+    .step-number {
+        transform: none;
+        left: 0;
+    }
+
+    .section-padding {
+        padding: var(--spacing-md) 0;
+    }
+}

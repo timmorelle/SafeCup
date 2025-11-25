@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>SafeCup – Contactez-nous</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-content">
+    <div class="logo">
+      <img src="Logo SafeCup.PNG" alt="Logo SafeCup" class="header-logo">
+      SafeCup
+    </div>
+    <nav class="nav">
+      <a href="index.html">Accueil</a>
+      <a href="how-it-works.html">Fonctionnement & Tech</a>
+      <a href="order.html">Commander (Simulation)</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section-padding contact-section">
+    <div class="container">
+      <h1 style="text-align: center; color: var(--color-primary-text);">Contactez notre équipe !</h1>
+      <p class="message-fictif" style="text-align: center;">
+        Pour toute question concernant le projet SafeCup ou notre lancement fictif.
+      </p>
+
+      <form class="order-form" id="contactForm">
+        <div class="form-group">
+          <label for="contactName">Votre Nom</label>
+          <input type="text" id="contactName" name="contactName" placeholder="Nom et Prénom" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="contactEmail">Votre Email</label>
+          <input type="email" id="contactEmail" name="contactEmail" placeholder="votre.email@exemple.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMessage">Votre Message</label>
+          <textarea id="contactMessage" name="contactMessage" rows="5" placeholder="Écrivez votre question ici..." required></textarea>
+        </div>
+        
+        <button type="submit" class="button primary">Envoyer le message</button>
+        
+        <p id="contactFeedback" class="form-feedback" aria-live="polite" style="display: none;"></p>
+      </form>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <p><strong>Support Académique :</strong> project-safecup@univ.edu (fictif)</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><img src="Logo SafeCup.PNG" alt="Logo SafeCup miniature" class="footer-logo"> &copy; 2025 SafeCup – Projet fictif de marketing. Sécurité et Responsabilité.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
